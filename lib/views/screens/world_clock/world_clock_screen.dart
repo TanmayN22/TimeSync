@@ -16,7 +16,7 @@ class WorldClockScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: SmallText(
+        title: const SmallText(
           text: "World Clock",
           fontSize: 26,
           fontWeight: FontWeight.bold,
@@ -27,23 +27,87 @@ class WorldClockScreen extends StatelessWidget {
           SizedBox(width: 16),
         ],
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Column(
           children: [
-            Flexible(
-              // we are using aspect ratio so that the map does not get stretched
-              // since the map matrix is 54 cols wide and 32 rows tall
-              // we use that as the ratio and lock it or-else are circle will look like ovals on some phones
-              child: AspectRatio(
-                aspectRatio: 54 / 32,
-                child: CustomPaint(
-                  // our world map
-                  painter: WorldMapPainter(
-                    mapData: WorldMapData.map,
-                    activeRow: activeRow,
-                    activeCol: activeCol,
+            // our world map
+            AspectRatio(
+              aspectRatio: 54 / 32,
+              child: CustomPaint(
+                painter: WorldMapPainter(
+                  mapData: WorldMapData.map,
+                  activeRow: activeRow,
+                  activeCol: activeCol,
+                ),
+              ),
+            ),
+            SizedBox(height: 30),
+            // Make this toggle button
+            Row(
+              children: [
+                // Clocks button
+                TextButton(
+                  style: TextButton.styleFrom(
+                    side: BorderSide(color: AppColors.redColor, width: 1),
+                    backgroundColor: AppColors.whiteColor,
+                  ),
+                  onPressed: () {},
+                  child: SmallText(
+                    text: "Clocks",
+                    fontSize: 15,
+                    color: AppColors.redColor,
                   ),
                 ),
+                SizedBox(width: 10),
+                // Time Sync Button
+                TextButton(
+                  style: TextButton.styleFrom(
+                    // side: BorderSide(color: AppColors.redColor, width: 1),
+                    backgroundColor: AppColors.whiteColor,
+                  ),
+                  onPressed: () {},
+                  child: SmallText(
+                    text: "Time Sync",
+                    fontSize: 15,
+                    color: AppColors.backgroundColor,
+                  ),
+                ),
+                Spacer(),
+                // Add time button
+                TextButton(
+                  style: TextButton.styleFrom(
+                    side: BorderSide(color: AppColors.whiteColor, width: 1),
+                    backgroundColor: AppColors.greyColor,
+                  ),
+                  onPressed: () {},
+                  child: SmallText(
+                    text: "ADD +",
+                    fontSize: 15,
+                    color: AppColors.whiteColor,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10),
+            // CLock grid layout
+            Expanded(
+              child: GridView.builder(
+                itemCount: 12,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  crossAxisCount: 2,
+                  childAspectRatio: 1,
+                ),
+                itemBuilder: (_, index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.whiteColor,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                  );
+                },
               ),
             ),
           ],

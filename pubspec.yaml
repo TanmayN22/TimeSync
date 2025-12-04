@@ -76,7 +76,7 @@ flutter:
   fonts:
     - family: Roobert
       fonts:
-        - asset: assets/fonts/Roobert-Font/RoobertTRIAL-Regular-BF67243fd53df2.otf
+        - asset: assets/fonts/Roobert-Font/RoobertTRIAL-Regular-BF67243fd53fdf2.otf
         - asset: assets/fonts/Roobert-Font/RoobertTRIAL-Medium-BF67243fd53e059.otf
           weight: 500
         - asset: assets/fonts/Roobert-Font/RoobertTRIAL-SemiBold-BF67243fd54213d.otf
@@ -85,6 +85,7 @@ flutter:
           weight: 700
         - asset: assets/fonts/Roobert-Font/RoobertTRIAL-RegularItalic-BF67243fd5414aa.otf
           style: italic
+
     - family: RoobertMono
       fonts:
         - asset: assets/fonts/Roobert-Font/RoobertMonoTRIAL-Regular-BF67243fd29a433.otf
@@ -92,10 +93,12 @@ flutter:
           weight: 700
         - asset: assets/fonts/Roobert-Font/RoobertMonoTRIAL-RegularItalic-BF67243fd308a20.otf
           style: italic
+
     - family: RoobertSemiMono
       fonts:
         - asset: assets/fonts/Roobert-Font/RoobertSemiMonoTRIAL-Regular-BF67243fd53ad6a.otf
         - asset: assets/fonts/Roobert-Font/RoobertSemiMonoTRIAL-Bold-BF67243fd539cff.otf
           weight: 700
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
